@@ -8,6 +8,7 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { FaBeer } from 'react-icons/fa';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyDvejHdww1PwBugC2pKoUoQn6zNWNxowO4',
@@ -29,7 +30,7 @@ function App() {
   return (
     <div className='App'>
       <header>
-        <h1>⚛️🔥💬</h1>
+        <h1>Иленмайна</h1>
         <SignOut />
       </header>
 
@@ -47,11 +48,8 @@ function SignIn() {
   return (
     <>
       <button className='sign-in' onClick={signInWithGoogle}>
-        Sign in with Google
+        Влез с Google
       </button>
-      <p>
-        Do not violate the community guidelines or you will be banned for life!
-      </p>
     </>
   );
 }
@@ -60,7 +58,7 @@ function SignOut() {
   return (
     auth.currentUser && (
       <button className='sign-out' onClick={() => auth.signOut()}>
-        Sign Out
+        Излез
       </button>
     )
   );
@@ -104,11 +102,11 @@ function ChatRoom() {
         <input
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
-          placeholder='say something nice'
+          placeholder='пиши в Иленмайна'
         />
 
         <button type='submit' disabled={!formValue}>
-          🕊️
+          <FaBeer />
         </button>
       </form>
     </>
